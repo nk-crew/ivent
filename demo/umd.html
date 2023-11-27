@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <nav>
+      <a href="esm.html">ESM</a>
+      <a href="umd.html">UMD</a>
+    </nav>
+    <h1>Test ivents calls as UMD.</h1>
+    <p>Check browser console for output.</p>
+    <button class="ivents-test-click">Click.</button>
+
+    <script src="../dist/ivents.min.js"></script>
+    <script>
+      ivents.on(document, 'custom-event-name', (e) => {
+        e.preventDefault();
+        console.log('custom event triggered', e);
+      });
+      ivents.trigger(document, 'custom-event-name', { data: 'custom event data' });
+
+      ivents.on(window, 'load', (e) => {
+        console.log('window loaded', e);
+      });
+      ivents.on(document, 'click', '.ivents-test-click', (e) => {
+        e.preventDefault();
+        console.log('button clicked', e);
+      });
+    </script>
+  </body>
+</html>

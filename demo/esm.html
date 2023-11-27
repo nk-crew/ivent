@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <nav>
+      <a href="esm.html">ESM</a>
+      <a href="umd.html">UMD</a>
+    </nav>
+    <h1>Test ivents calls as ESM.</h1>
+    <p>Check browser console for output.</p>
+    <button class="ivents-test-click">Click.</button>
+
+    <script type="module">
+      import { on, trigger } from "../dist/ivents.esm.min.js";
+
+      on(document, 'custom-event-name', (e) => {
+        e.preventDefault();
+        console.log('custom event triggered', e);
+      });
+      trigger(document, 'custom-event-name', { data: 'custom event data' });
+
+      on(window, 'load', (e) => {
+        console.log('window loaded', e);
+      });
+      on(document, 'click', '.ivents-test-click', (e) => {
+        e.preventDefault();
+        console.log('button clicked', e);
+      });
+    </script>
+  </body>
+</html>
