@@ -1,5 +1,5 @@
 /*!
- * ivent v0.1.1 (https://github.com/nk-crew/ivent)
+ * ivent v0.2.0 (https://github.com/nk-crew/ivent)
  * Copyright 2023 nK <https://nkdev.info>
  * Licensed under MIT (https://github.com/nk-crew/ivent/blob/master/LICENSE)
  */
@@ -20,7 +20,9 @@ const namespaceRegex = /[^.]*(?=\..*)\.|.*/;
 const stripNameRegex = /\..*/;
 const customEvents = {
   mouseenter: 'mouseover',
-  mouseleave: 'mouseout'
+  mouseleave: 'mouseout',
+  pointerenter: 'pointerover',
+  pointerleave: 'pointerout'
 };
 function parseEventName(name) {
   // Get the native events from namespaced events ('click.ghostkit.button' --> 'click')
@@ -160,6 +162,15 @@ function addHandler(element, originalTypeEvent, handler, delegationFunction, one
   fn.oneOff = oneOff;
   fn.uidEvent = uid;
   handlers[uid] = fn;
+
+  // Add support for custom event handler `ready` for DOMContentLoaded.
+  if (element === document && typeEvent === 'ready' && !isDelegated) {
+    typeEvent = 'DOMContentLoaded';
+    if (document.readyState !== 'loading') {
+      fn(new CustomEvent('ready'));
+      return;
+    }
+  }
   element.addEventListener(typeEvent, fn, isDelegated);
 }
 function removeHandler(element, events, typeEvent, handler, delegationSelector) {
