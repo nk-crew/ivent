@@ -103,6 +103,16 @@ export function addHandler(element, originalTypeEvent, handler, delegationFuncti
   fn.uidEvent = uid;
   handlers[uid] = fn;
 
+  // Add support for custom event handler `ready` for DOMContentLoaded.
+  if (element === document && typeEvent === 'ready' && !isDelegated) {
+    typeEvent = 'DOMContentLoaded';
+
+    if (document.readyState !== 'loading') {
+      fn(new CustomEvent('ready'));
+      return;
+    }
+  }
+
   element.addEventListener(typeEvent, fn, isDelegated);
 }
 

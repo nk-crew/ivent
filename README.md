@@ -13,9 +13,16 @@ Helper functions for browser event listener
   - [UMD CDN](#umd-cdn)
   - [CJS (Bundlers like Webpack)](#cjs-bundlers-like-webpack)
 - [Methods](#methods)
-  - [on|one](#onone)
+  - [on](#on)
+  - [one](#one)
   - [off](#off)
   - [trigger](#trigger)
+- [Custom Events](#custom-events)
+  - [ready](#ready)
+  - [mouseenter](#mouseenter)
+  - [mouseleave](#mouseleave)
+  - [pointerenter](#pointerenter)
+  - [pointerleave](#pointerleave)
 - [For Developers](#for-developers)
 
 ## Import ivent
@@ -71,7 +78,8 @@ import { on, off } from 'ivent';
 
 ## Methods
 
-### on|one
+### on
+### one
 
 DOM event listener:
 
@@ -136,8 +144,39 @@ Trigger event:
 ```javascript
 import { trigger } from 'ivent';
 
-trigger(document, 'click', (e) => {
-  console.log('clicked', e);
+trigger(document, 'click');
+```
+
+## Custom Events
+
+### ready
+
+Create `ready` event which work in the same way as `DOMContentLoaded` with additional check for dom loaded. For example, if dom is already loaded, the `ready` event callback will be fired immediately.
+
+Example:
+
+```javascript
+import { on } from 'ivent';
+
+on(document, 'ready', (e) => {
+  console.log('dom ready', e);
+});
+```
+
+### mouseenter
+### mouseleave
+### pointerenter
+### pointerleave
+
+Create `mouseenter` / `mouseleave` events using `mouseover` / `mouseout` so that event delegation works properly. Do the same for `pointerenter` / `pointerleave` and `pointerover` / `pointerout`.
+
+Example:
+
+```javascript
+import { on } from 'ivent';
+
+on(document, 'mouseenter', 'button', (e) => {
+  console.log('button mouseenter event created using mouseover', e);
 });
 ```
 

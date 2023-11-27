@@ -51,6 +51,8 @@ const stripNameRegex = /\..*/;
 const customEvents = {
   mouseenter: 'mouseover',
   mouseleave: 'mouseout',
+  pointerenter: 'pointerover',
+  pointerleave: 'pointerout',
 };
 
 export default function parseEventName(name) {
