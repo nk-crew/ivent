@@ -1,5 +1,5 @@
 /*!
- * ivent v0.1.0 (https://github.com/nk-crew/ivent)
+ * ivent v0.1.1 (https://github.com/nk-crew/ivent)
  * Copyright 2023 nK <https://nkdev.info>
  * Licensed under MIT (https://github.com/nk-crew/ivent/blob/master/LICENSE)
  */
