@@ -11,12 +11,12 @@
       <a href="esm.html">ESM</a>
       <a href="umd.html">UMD</a>
     </nav>
-    <h1>Test ivents calls as ESM.</h1>
+    <h1>Test ivent calls as ESM.</h1>
     <p>Check browser console for output.</p>
-    <button class="ivents-test-click">Click.</button>
+    <button class="ivent-test-click">Click.</button>
 
     <script type="module">
-      import { on, trigger } from "../dist/ivents.esm.min.js";
+      import { on, trigger } from "../dist/ivent.esm.min.js";
 
       on(document, 'custom-event-name', (e) => {
         e.preventDefault();
@@ -27,7 +27,7 @@
       on(window, 'load', (e) => {
         console.log('window loaded', e);
       });
-      on(document, 'click', '.ivents-test-click', (e) => {
+      on(document, 'click', '.ivent-test-click', (e) => {
         e.preventDefault();
         console.log('button clicked', e);
       });

@@ -8,7 +8,7 @@ import makeEventUid from './make-event-uid';
 import getElementEvents from './get-element-events';
 import normalizeParameters from './normalize-parameters';
 
-function iventsHandler(element, fn) {
+function iventHandler(element, fn) {
   return function handler(event) {
     hydrateObj(event, { delegateTarget: element });
 
@@ -21,7 +21,7 @@ function iventsHandler(element, fn) {
   };
 }
 
-function iventsDelegationHandler(element, selector, fn) {
+function iventDelegationHandler(element, selector, fn) {
   return function handler(event) {
     const domElements = element.querySelectorAll(selector);
 
@@ -94,8 +94,8 @@ export function addHandler(element, originalTypeEvent, handler, delegationFuncti
 
   const uid = makeEventUid(callable, parsedEvent.namespace);
   const fn = isDelegated
-    ? iventsDelegationHandler(element, handler, callable)
-    : iventsHandler(element, callable);
+    ? iventDelegationHandler(element, handler, callable)
+    : iventHandler(element, callable);
 
   fn.delegationSelector = isDelegated ? handler : null;
   fn.callable = callable;

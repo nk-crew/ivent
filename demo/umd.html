@@ -11,22 +11,22 @@
       <a href="esm.html">ESM</a>
       <a href="umd.html">UMD</a>
     </nav>
-    <h1>Test ivents calls as UMD.</h1>
+    <h1>Test ivent calls as UMD.</h1>
     <p>Check browser console for output.</p>
-    <button class="ivents-test-click">Click.</button>
+    <button class="ivent-test-click">Click.</button>
 
-    <script src="../dist/ivents.min.js"></script>
+    <script src="../dist/ivent.min.js"></script>
     <script>
-      ivents.on(document, 'custom-event-name', (e) => {
+      ivent.on(document, 'custom-event-name', (e) => {
         e.preventDefault();
         console.log('custom event triggered', e);
       });
-      ivents.trigger(document, 'custom-event-name', { data: 'custom event data' });
+      ivent.trigger(document, 'custom-event-name', { data: 'custom event data' });
 
-      ivents.on(window, 'load', (e) => {
+      ivent.on(window, 'load', (e) => {
         console.log('window loaded', e);
       });
-      ivents.on(document, 'click', '.ivents-test-click', (e) => {
+      ivent.on(document, 'click', '.ivent-test-click', (e) => {
         e.preventDefault();
         console.log('button clicked', e);
       });

@@ -1,13 +1,13 @@
 /*!
- * ivents v0.1.0 (https://github.com/nk-crew/ivents)
+ * ivent v0.1.0 (https://github.com/nk-crew/ivent)
  * Copyright 2023 nK <https://nkdev.info>
- * Licensed under MIT (https://github.com/nk-crew/ivents/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/nk-crew/ivent/blob/master/LICENSE)
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ivents = {}));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ivent = {}));
 })(this, (function (exports) { 'use strict';
 
   let uidEvent = 1;
@@ -107,7 +107,7 @@
 
   /* eslint-disable no-restricted-syntax */
 
-  function iventsHandler(element, fn) {
+  function iventHandler(element, fn) {
     return function handler(event) {
       hydrateObj(event, {
         delegateTarget: element
@@ -119,7 +119,7 @@
       return fn.apply(element, [event]);
     };
   }
-  function iventsDelegationHandler(element, selector, fn) {
+  function iventDelegationHandler(element, selector, fn) {
     return function handler(event) {
       const domElements = element.querySelectorAll(selector);
       for (let {
@@ -172,7 +172,7 @@
       return;
     }
     const uid = makeEventUid(callable, parsedEvent.namespace);
-    const fn = isDelegated ? iventsDelegationHandler(element, handler, callable) : iventsHandler(element, callable);
+    const fn = isDelegated ? iventDelegationHandler(element, handler, callable) : iventHandler(element, callable);
     fn.delegationSelector = isDelegated ? handler : null;
     fn.callable = callable;
     fn.oneOff = oneOff;
@@ -261,4 +261,4 @@
   exports.trigger = trigger;
 
 }));
-//# sourceMappingURL=ivents.js.map
+//# sourceMappingURL=ivent.js.map

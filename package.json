@@ -1,13 +1,13 @@
 {
-  "name": "ivents",
+  "name": "ivent",
   "version": "0.1.0",
   "description": "Helper functions for browser event listener",
   "license": "MIT",
-  "homepage": "https://github.com/nk-crew/ivents",
+  "homepage": "https://github.com/nk-crew/ivent",
   "author": "nK <https://nkdev.info>",
-  "main": "dist/ivents.cjs",
-  "module": "dist/ivents.esm.js",
-  "unpkg": "dist/ivents.min.js",
+  "main": "dist/ivent.cjs",
+  "module": "dist/ivent.esm.js",
+  "unpkg": "dist/ivent.min.js",
   "files": [
     "src",
     "dist"
@@ -21,10 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nk-crew/ivents.git"
+    "url": "git://github.com/nk-crew/ivent.git"
   },
   "bugs": {
-    "url": "https://github.com/nk-crew/ivents/issues"
+    "url": "https://github.com/nk-crew/ivent/issues"
   },
   "keywords": [
     "events",

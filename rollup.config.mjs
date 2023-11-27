@@ -16,21 +16,21 @@ const year = new Date().getFullYear();
 
 function getHeader() {
   return `/*!
- * ivents v${data.version} (${data.homepage})
+ * ivent v${data.version} (${data.homepage})
  * Copyright ${year} ${data.author}
- * Licensed under MIT (https://github.com/nk-crew/ivents/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/nk-crew/ivent/blob/master/LICENSE)
  */
 `;
 }
 
-const input = './src/ivents.js';
+const input = './src/ivent.js';
 
 const bundles = [
   {
     input,
     output: {
       banner: getHeader(),
-      file: './dist/ivents.esm.js',
+      file: './dist/ivent.esm.js',
       format: 'esm',
     },
   },
@@ -38,7 +38,7 @@ const bundles = [
     input,
     output: {
       banner: getHeader(),
-      file: './dist/ivents.esm.min.js',
+      file: './dist/ivent.esm.min.js',
       format: 'esm',
       compact: true,
     },
@@ -47,8 +47,8 @@ const bundles = [
     input,
     output: {
       banner: getHeader(),
-      name: 'ivents',
-      file: './dist/ivents.js',
+      name: 'ivent',
+      file: './dist/ivent.js',
       format: 'umd',
     },
   },
@@ -56,8 +56,8 @@ const bundles = [
     input,
     output: {
       banner: getHeader(),
-      name: 'ivents',
-      file: './dist/ivents.min.js',
+      name: 'ivent',
+      file: './dist/ivent.min.js',
       format: 'umd',
       compact: true,
     },
@@ -66,7 +66,7 @@ const bundles = [
     input,
     output: {
       banner: getHeader(),
-      file: './dist/ivents.cjs',
+      file: './dist/ivent.cjs',
       format: 'cjs',
       exports: 'named',
     },
@@ -75,7 +75,7 @@ const bundles = [
     input,
     output: {
       banner: getHeader(),
-      file: './dist/ivents.cjs',
+      file: './dist/ivent.cjs',
       format: 'cjs',
       exports: 'named',
       compact: true,
@@ -84,7 +84,7 @@ const bundles = [
 ];
 
 const isDev = () => process.env.NODE_ENV === 'dev';
-const isUMD = (file) => file.includes('ivents.js');
+const isUMD = (file) => file.includes('ivent.js');
 const isMinEnv = (file) => file.includes('.min.');
 const isSpecificEnv = (file) => isMinEnv(file);
 const isDebugAlways = (file) => (isDev() || isUMD(file) ? 'true' : 'false');

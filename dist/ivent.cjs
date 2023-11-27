@@ -1,7 +1,7 @@
 /*!
- * ivents v0.1.0 (https://github.com/nk-crew/ivents)
+ * ivent v0.1.0 (https://github.com/nk-crew/ivent)
  * Copyright 2023 nK <https://nkdev.info>
- * Licensed under MIT (https://github.com/nk-crew/ivents/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/nk-crew/ivent/blob/master/LICENSE)
  */
 
 'use strict';let uidEvent = 1;
@@ -89,7 +89,7 @@ function off(element, event, handler, delegationFunction) {
   return obj;
 }/* eslint-disable no-restricted-syntax */
 
-function iventsHandler(element, fn) {
+function iventHandler(element, fn) {
   return function handler(event) {
     hydrateObj(event, {
       delegateTarget: element
@@ -101,7 +101,7 @@ function iventsHandler(element, fn) {
     return fn.apply(element, [event]);
   };
 }
-function iventsDelegationHandler(element, selector, fn) {
+function iventDelegationHandler(element, selector, fn) {
   return function handler(event) {
     const domElements = element.querySelectorAll(selector);
     for (let {
@@ -154,7 +154,7 @@ function addHandler(element, originalTypeEvent, handler, delegationFunction, one
     return;
   }
   const uid = makeEventUid(callable, parsedEvent.namespace);
-  const fn = isDelegated ? iventsDelegationHandler(element, handler, callable) : iventsHandler(element, callable);
+  const fn = isDelegated ? iventDelegationHandler(element, handler, callable) : iventHandler(element, callable);
   fn.delegationSelector = isDelegated ? handler : null;
   fn.callable = callable;
   fn.oneOff = oneOff;
@@ -227,4 +227,4 @@ function removeNamespacedHandlers(element, events, typeEvent, namespace) {
     jQueryEvent.preventDefault();
   }
   return evt;
-}exports.off=off;exports.on=on;exports.one=one;exports.trigger=trigger;//# sourceMappingURL=ivents.cjs.map
+}exports.off=off;exports.on=on;exports.one=one;exports.trigger=trigger;//# sourceMappingURL=ivent.cjs.map

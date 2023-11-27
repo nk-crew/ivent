@@ -1,12 +1,12 @@
-# ivents <!-- omit in toc -->
+# ivent <!-- omit in toc -->
 
-![ivents.min.js](https://img.badgesize.io/nk-crew/ivents/master/dist/ivents.min.js?compression=gzip)
+![ivent.min.js](https://img.badgesize.io/nk-crew/ivent/master/dist/ivent.min.js?compression=gzip)
 
 Helper functions for browser event listener
 
 ## Table of Contents <!-- omit in toc -->
 
-- [Import ivents](#import-ivents)
+- [Import ivent](#import-ivent)
   - [ESM](#esm)
   - [ESM CDN](#esm-cdn)
   - [UMD](#umd)
@@ -18,17 +18,17 @@ Helper functions for browser event listener
   - [trigger](#trigger)
 - [For Developers](#for-developers)
 
-## Import ivents
+## Import ivent
 
 Use one of the following examples to import script.
 
 ### ESM
 
-We provide a version of ivents built as ESM (ivents.esm.js and ivents.esm.min.js) which allows you to use ivents as a module in your browser, if your [targeted browsers support it](https://caniuse.com/es6-module).
+We provide a version of ivent built as ESM (ivent.esm.js and ivent.esm.min.js) which allows you to use ivent as a module in your browser, if your [targeted browsers support it](https://caniuse.com/es6-module).
 
 ```html
 <script type="module">
-  import { on, off } from "ivents.esm.min.js";
+  import { on, off } from "ivent.esm.min.js";
 </script>
 ```
 
@@ -36,37 +36,37 @@ We provide a version of ivents built as ESM (ivents.esm.js and ivents.esm.min.js
 
 ```html
 <script type="module">
-  import { on, off } from "https://cdn.jsdelivr.net/npm/ivents@0.1/+esm";
+  import { on, off } from "https://cdn.jsdelivr.net/npm/ivent@0.1/+esm";
 </script>
 ```
 
 ### UMD
 
-ivents may be also used in a traditional way by including script in HTML and using library by accessing `window.ivents`.
+ivent may be also used in a traditional way by including script in HTML and using library by accessing `window.ivent`.
 
 ```html
-<script src="ivents.min.js"></script>
+<script src="ivent.min.js"></script>
 ```
 
 
 ### UMD CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ivents@0.1/dist/ivents.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ivent@0.1/dist/ivent.min.js"></script>
 ```
 
 ### CJS (Bundlers like Webpack)
 
-Install ivents as a Node.js module using npm
+Install ivent as a Node.js module using npm
 
 ```
-npm install ivents
+npm install ivent
 ```
 
-Import ivents by adding this line to your app's entry point (usually `index.js` or `app.js`):
+Import ivent by adding this line to your app's entry point (usually `index.js` or `app.js`):
 
 ```javascript
-import { on, off } from 'ivents';
+import { on, off } from 'ivent';
 ```
 
 ## Methods
@@ -76,7 +76,7 @@ import { on, off } from 'ivents';
 DOM event listener:
 
 ```javascript
-import { on } from 'ivents';
+import { on } from 'ivent';
 
 on(document, 'click', (e) => {
   console.log('clicked', e);
@@ -86,7 +86,7 @@ on(document, 'click', (e) => {
 Event listener with delegated target:
 
 ```javascript
-import { on } from 'ivents';
+import { on } from 'ivent';
 
 on(document, 'click', '.custom-element-selector', (e) => {
   console.log('clicked', e);
@@ -96,7 +96,7 @@ on(document, 'click', '.custom-element-selector', (e) => {
 Custom event listener with namespace:
 
 ```javascript
-import { on } from 'ivents';
+import { on } from 'ivent';
 
 on(document, 'the-custom-event.with-namespace', (e) => {
   console.log('clicked', e);
@@ -108,7 +108,7 @@ on(document, 'the-custom-event.with-namespace', (e) => {
 Remove DOM event listener:
 
 ```javascript
-import { on } from 'ivents';
+import { on } from 'ivent';
 
 on(document, 'click', (e) => {
   console.log('clicked', e);
@@ -120,7 +120,7 @@ off(document, 'click');
 Remove DOM event listener by namespace:
 
 ```javascript
-import { on } from 'ivents';
+import { on } from 'ivent';
 
 on(document, 'click.my-namespace', (e) => {
   console.log('clicked', e);
@@ -134,7 +134,7 @@ off(document, '.my-namespace');
 Trigger event:
 
 ```javascript
-import { trigger } from 'ivents';
+import { trigger } from 'ivent';
 
 trigger(document, 'click', (e) => {
   console.log('clicked', e);
